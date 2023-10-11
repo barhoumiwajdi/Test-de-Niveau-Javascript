@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 1</title>
+  </head>
+
+  <body>
+    <script>
+      var tableau = [];
+
+      function sommeDeuxMin(tableau) {
+        var min = Infinity;
+        var min2 = Infinity;
+        var somme = 0;
+        for (var i = 0; i < tableau.length; i++) {
+          if (tableau[i] < min && tableau[i] > 0) {
+            min2 = min;
+            min = tableau[i];
+          } else if (tableau[i] < min2) {
+            min2 = tableau[i];
+          }
+          somme = min + min2;
+
+          console.log("Voici le tableau aléatoire : " + tableau);
+        }
+        return "Voici la somme des deux minimums positifs : " + somme;
+      }
+
+      for (var i = 0; i < 5; i++) {
+        tableau[i] = Number(prompt("Entrez un nombre : "));
+      }
+      console.log(sommeDeuxMin(tableau));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--  Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/Ex4/CSS/dash.css">
+
+    <title>Tableau Sociétés et Employés</title>
+</head>
+
+<body>
+    <!-- Navbar bootstrap -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand"><strong class="text-primary">BIENVENUE</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- Boutons -->
+            <form class="d-flex" role="search">
+                <a href="Register.html" class="btn btn-outline-success" type="submit"><strong>Ajouter données</strong>
+                </a>
+                <span class="mx-2"></span>
+                <a href="Dashboard.html" class="btn btn-outline-success" type="submit"><strong>Tableau des
+                        données</strong>
+                </a>
+                <a href="Employee.html" class="btn btn-outline-success" type="submit"><strong>Employee</strong>
+                </a>
+            </form>
+        </div>
+        </div>
+    </nav>
+    <!-- Fin Navbar bootstrap -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <h2 class="text-success text-center mt-5">Ajouter un employé</h2>
+
+                <form action="#" id="add-employee-form">
+                    <div class="form-group">
+                        <label for="employee-first-name">Prénom</label>
+                        <input type="text" class="form-control" id="employee-first-name"
+                            placeholder="Saisir le prénom de l'employé" />
+                    </div>
+                    <div class="invalid-feedback">Le prénom est obligatoire</div>
+
+                    <div class="form-group">
+                        <label for="employee-last-name">Nom</label>
+                        <input type="text" class="form-control" id="employee-last-name"
+                            placeholder="Saisir le nom de l'employé" />
+                    </div>
+                    <div class="invalid-feedback">Le nom est obligatoire</div>
+
+                    <div class="form-group">
+                        <label for="employee-email">Email</label>
+                        <input type="email" class="form-control" id="employee-email"
+                            placeholder="Saisir le mail de l'employé" />
+                    </div>
+                    <div class="invalid-feedback">L'email est obligatoire</div>
+
+                    <div class="form-group">
+                        <label for="employee-address">Adresse</label>
+                        <input type="text" class="form-control" id="employee-address"
+                            placeholder="Saisir l'adresse de l'employé" />
+                    </div>
+                    <div class="invalid-feedback">L'adresse est obligatoire</div>
+
+                    <select class="form-control mt-3" id="employee-company">
+                        <option value="">Sélectionnez une société</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary mt-3 w-100" id="add-employee">Ajouter</button>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-success text-center mt-5">Employés</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prénom</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Sociéte</th>
+
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employees-tables"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Ajouter un employé -->
+
+
+
+
+
+    <!-- Button trigger modal -->
+    <!-- Modal employés -->
+    <div class="modal fade" id="exampleModalEmployee" tabindex="-1" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel1">Update</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group mb-3">
+                            <!-- Nom et adresse-->
+                            <label for="last-name"> <strong>Nom de l'employé :</strong></label>
+                            <input type="text" class="form-control" id="last-name"
+                                placeholder="Saisissez le nom de l'employé'" />
+                            <div class="invalid-feedback">
+                                Le nom est obligatoire
+                            </div>
+
+                            <label for="first-name"><strong>Prénom :</strong></label>
+                            <textarea class="form-control" id="first-name" placeholder="Saisissez le prénom"
+                                rows="4"></textarea>
+                            <div class="invalid-feedback">
+                                Le prénom est obligatoire
+                            </div>
+
+                            <!-- email -->
+                            <label for="email"><strong>Email :</strong></label>
+                            <input type="email" class="form-control" id="email-employee"
+                                placeholder="Saisissez l'email de l'employé" />
+                            <div class="invalid-feedback">
+                                L'email est obligatoire
+                            </div>
+
+                            <label for="adresse"><strong>Adresse :</strong></label>
+                            <textarea class="form-control" id="adresse-employee" placeholder="Saisissez l'adresse'"
+                                rows="4"></textarea>
+                            <div class="invalid-feedback">
+                                L'adresse est obligatoire
+                            </div>
+
+                            <select class="form-control mt-3" id="employee-company">
+
+                            </select>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="updateEmployeedata()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal employé-->
+    <!-- Button trigger modal -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+
+    <script src="Employee.js"></script>
+</body>
+
+</html>

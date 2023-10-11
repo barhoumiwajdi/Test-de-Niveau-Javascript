@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 2</title>
+  </head>
+
+  <body>
+    <script>
+      function sommePositifs(tableau) {
+        var somme = 0;
+        for (var i = 0; i < tableau.length; i++) {
+          if (tableau[i] >= 0) {
+            somme += tableau[i];
+          }
+          console.log("Voici le tableau aléatoire : " + tableau);
+        }
+        return "La somme des entiers positifs est : " + somme;
+      }
+
+      var tableau = [];
+      for (var i = 0; i < 5; i++) {
+        tableau[i] = Number(prompt("Entrez un nombre : "));
+      }
+      console.log(sommePositifs(tableau));
+    </script>
+  </body>
+</html>

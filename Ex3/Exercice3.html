@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 3</title>
+  </head>
+  <body>
+    <script>
+      function initiales(Ch) {
+        return (
+          "Voici la chaîne initiale : " +
+          Ch +
+          "\nVoici les initiales de la chaîne : " +
+          Ch.charAt(0).toUpperCase() +
+          "." +
+          Ch.charAt(Ch.indexOf(" ") + 1).toUpperCase()
+        );
+      }
+
+      var Ch = prompt("Entrez une chaîne de caractères :");
+      console.log(initiales(Ch));
+    </script>
+  </body>
+</html>
